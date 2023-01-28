@@ -21,7 +21,20 @@ function ClientController:KnitInit()
 end
 
 function ClientController:KnitStart()
-  
+    Knit:GetCharacter():WaitForChild("HumanoidRootPart").Touched:Connect(function(TouchPart)
+        if self.TouchPart == TouchPart then return end
+        if TouchPart.Name == "Detection" then
+            self.TouchPart = TouchPart
+            self.ClientRootVector3 = self:GetCurrentRootVector3()
+            warn("Player Touched by Detection")
+        end
+    end)
+    Knit:GetCharacter():WaitForChild("HumanoidRootPart").TouchEnded:Connect(function(TouchPart)
+        if self.TouchPart == TouchPart then
+            self.TouchPart = nil
+            warn("Player TouchEnded by Detection")
+        end
+    end)
 end
 
 function ClientController:GetCurrentRootVector3()

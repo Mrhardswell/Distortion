@@ -15,6 +15,7 @@ Knit.StarterGui = game:GetService("StarterGui")
 Knit.PlayerGui = Knit.LocalPlayer:WaitForChild("PlayerGui")
 Knit.Camera = workspace.CurrentCamera
 Knit.Mouse = Knit.LocalPlayer:GetMouse()
+Knit.SoundService = game:GetService("SoundService")
 
 function Knit.GetCharacter()
 	return Knit.LocalPlayer.Character or Knit.LocalPlayer.CharacterAdded:Wait()

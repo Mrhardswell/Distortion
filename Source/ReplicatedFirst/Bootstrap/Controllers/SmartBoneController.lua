@@ -6,7 +6,6 @@ assert(Knit and smartBone, "Knit or SmartBone is not found.")
 
 local SmartBone = Knit.CreateController {
 	Name = "SmartBone";
-	Client = {};
 }
 
 function SmartBone:KnitInit()

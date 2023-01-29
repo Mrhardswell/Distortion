@@ -16,16 +16,20 @@ end
 function ServerService:KnitStart()
     Knit.PlayerAdded:Connect(function(Player)
         self.PlayersList[Player.Name] = Player
-        print(self:GetPlayers())
+
     end)
     Knit.PlayerRemoving:Connect(function(Player)
         self.PlayersList[Player.Name] = nil
-        print(self:GetPlayers())
+        
     end)
 end
 
 function ServerService:GetPlayers()
     return self.PlayersList
+end
+
+function ServerService.Client:GetPlayers()
+    return ServerService:GetPlayers()
 end
 
 return ServerService
